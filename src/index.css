@@ -51,6 +51,49 @@ All colors MUST be HSL.
     --glass-background: hsla(240, 6%, 8%, 0.6);
     --glass-border: hsla(0, 0%, 100%, 0.1);
   }
+
+  .light {
+    /* Zerise.dev Light Theme */
+    
+    /* Core Colors - Clean whites and light grays */
+    --background: 0 0% 98%;
+    --foreground: 240 8% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 8% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 8% 10%;
+
+    /* Primary - Blue */
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Red */
+    --secondary: 0 84% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 5% 40%;
+
+    --accent: 240 5% 93%;
+    --accent-foreground: 240 8% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 217 91% 60%;
+
+    /* Custom gradient tokens */
+    --gradient-rise: linear-gradient(135deg, hsl(217 91% 60%), hsl(0 84% 60%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 98%), hsl(0 0% 95%));
+    
+    /* Glass effect */
+    --glass-background: hsla(0, 0%, 100%, 0.6);
+    --glass-border: hsla(240, 6%, 50%, 0.2);
+  }
 }
 
 @layer base {

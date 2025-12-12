@@ -4,9 +4,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Send } from "lucide-react";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 const Contact = () => {
   const { toast } = useToast();
+  const { ref, isVisible } = useIntersectionObserver({ threshold: 0.2 });
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -48,19 +50,25 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 relative">
+    <section id="contact" className="py-24 relative" ref={ref}>
       <div className="container mx-auto px-6">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className={`text-4xl md:text-5xl font-bold mb-4 transition-all duration-700 ${
+              isVisible ? "animate-fade-in" : "opacity-0 translate-y-10"
+            }`}>
               Get in <span className="gradient-text">Touch</span>
             </h2>
-            <p className="text-muted-foreground text-lg">
+            <p className={`text-muted-foreground text-lg transition-all duration-700 delay-100 ${
+              isVisible ? "animate-slide-up" : "opacity-0 translate-y-10"
+            }`}>
               Let's build something amazing together
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className={`space-y-6 transition-all duration-700 delay-200 ${
+            isVisible ? "animate-scale-in" : "opacity-0 scale-95"
+          }`}>
             <div>
               <Input
                 type="text"
@@ -100,7 +108,9 @@ const Contact = () => {
             </Button>
           </form>
 
-          <div className="mt-8 text-center">
+          <div className={`mt-8 text-center transition-all duration-700 delay-300 ${
+            isVisible ? "animate-fade-in" : "opacity-0"
+          }`}>
             <p className="text-muted-foreground">Or reach us directly at</p>
             <a
               href="mailto:zerise.dev@gmail.com"

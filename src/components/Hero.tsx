@@ -27,18 +27,18 @@ const Hero = () => {
 
       {/* Content */}
       <div className="container mx-auto px-6 relative z-10 text-center">
-        <div className="max-w-4xl mx-auto space-y-8 animate-in fade-in duration-1000">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight animate-fade-in">
             <span className="gradient-text">Born from Zero.</span>
             <br />
             <span className="text-foreground">Built to Rise.</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: "0.2s" }}>
             Empowering ideas through design, code, and innovation.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4 animate-slide-up" style={{ animationDelay: "0.4s" }}>
             <Button
               size="lg"
               onClick={() => scrollToSection("services")}

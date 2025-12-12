@@ -1,7 +1,9 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Brain, Code, Palette } from "lucide-react";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 const Services = () => {
+  const { ref, isVisible } = useIntersectionObserver({ threshold: 0.1 });
   const services = [
     {
       icon: Brain,
@@ -24,13 +26,17 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-24 relative">
+    <section id="services" className="py-24 relative" ref={ref}>
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className={`text-4xl md:text-5xl font-bold mb-4 transition-all duration-700 ${
+            isVisible ? "animate-fade-in" : "opacity-0 translate-y-10"
+          }`}>
             What We <span className="gradient-text">Do</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className={`text-muted-foreground text-lg transition-all duration-700 delay-100 ${
+            isVisible ? "animate-slide-up" : "opacity-0 translate-y-10"
+          }`}>
             Transforming ideas into digital reality
           </p>
         </div>
@@ -41,7 +47,10 @@ const Services = () => {
             return (
               <Card
                 key={index}
-                className="glass-card border-border hover:border-primary/50 transition-all duration-300 hover:scale-105"
+                className={`glass-card border-border hover:border-primary/50 transition-all duration-500 hover:scale-105 ${
+                  isVisible ? "animate-slide-up" : "opacity-0 translate-y-10"
+                }`}
+                style={{ transitionDelay: `${index * 150}ms` }}
               >
                 <CardHeader>
                   <div className={`${service.color} mb-4`}>
