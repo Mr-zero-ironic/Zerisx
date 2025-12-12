@@ -30,6 +30,7 @@ const Navbar = () => {
   ];
 
   return (
+    <>
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? "glass-card shadow-lg" : "bg-transparent"
@@ -41,8 +42,7 @@ const Navbar = () => {
             onClick={() => scrollToSection("hero")}
             className="text-2xl font-bold gradient-text hover:opacity-80 transition-opacity"
           >
-            Zerise.dev
-          </button>
+            Zerise Devs          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
@@ -94,6 +94,7 @@ const Navbar = () => {
         )}
       </div>
     </nav>
+    </>
   );
 };
 
