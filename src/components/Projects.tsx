@@ -1,6 +1,5 @@
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import Image from "@/assets/Screenshot (32).png"
 
 function Projects() {
     const { ref, isVisible } = useIntersectionObserver({ threshold: 0.1 });

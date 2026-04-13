@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Send } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -15,39 +16,57 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Basic validation
-    if (!formData.name || !formData.email || !formData.message) {
-      toast({
-        title: "Error",
-        description: "Please fill in all fields",
-        variant: "destructive",
-      });
-      return;
-    }
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      toast({
-        title: "Error",
-        description: "Please enter a valid email address",
-        variant: "destructive",
-      });
-      return;
-    }
+  if (!formData.name || !formData.email || !formData.message) {
+    toast({
+      title: "Error",
+      description: "Please fill in all fields",
+      variant: "destructive",
+    });
+    return;
+  }
 
-    // Success feedback
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(formData.email)) {
+    toast({
+      title: "Error",
+      description: "Please enter a valid email address",
+      variant: "destructive",
+    });
+    return;
+  }
+
+  try {
+    await emailjs.send(
+      "webdev",   // 🔁 replace
+      "template_6mdj5rj",  // 🔁 replace
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+      },
+      "JM6ccXUPUIDuawo_9"    // 🔁 replace
+    );
+
     toast({
       title: "Message Sent!",
-      description: "We'll get back to you as soon as possible.",
+      description: "We'll get back to you soon.",
     });
 
-    // Reset form
     setFormData({ name: "", email: "", message: "" });
-  };
+
+  } catch (error) {
+    console.error(error);
+
+    toast({
+      title: "Error",
+      description: "Failed to send message. Try again later.",
+      variant: "destructive",
+    });
+  }
+};
 
   return (
     <section id="contact" className="py-24 relative" ref={ref}>
