@@ -10,13 +10,13 @@ const About = () => {
           <h2 className={`text-4xl md:text-5xl font-bold transition-all duration-700 ${
             isVisible ? "animate-fade-in" : "opacity-0 translate-y-10"
           }`}>
-            We're <span className="gradient-text">Zerise.dev</span>
+            We're <span className="gradient-text">Zerisx </span>
           </h2>
           <p className={`text-lg md:text-xl text-muted-foreground leading-relaxed transition-all duration-700 delay-200 ${
             isVisible ? "animate-slide-up" : "opacity-0 translate-y-10"
           }`}>
             We started from nothing — a spark of an idea, now shaping digital experiences 
-            that matter. At Zerise.dev, we blend creativity and technology to build 
+            that matter. At Zerisx Tech, we blend creativity and technology to build 
             meaningful products that help businesses thrive in the digital age.
           </p>
         </div>

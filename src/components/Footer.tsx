@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-around gap-6">
           <div className="text-center md:text-left">
             <p className="text-muted-foreground">
-              © 2025 <span className="gradient-text font-semibold">Zerise.dev</span>. All rights reserved.
+              © 2026 <span className="gradient-text font-semibold">Zerisx Tech Solutions</span>. All rights reserved.
             </p>
           </div>
 

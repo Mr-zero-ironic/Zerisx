@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Moon, Sun } from "lucide-react";
-import { Footer } from "react-day-picker";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,12 +26,11 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", id: "hero" },
-     { name: "About", id: "about" },
-      { name: "Projects", id: "project" },
+    { name: "About", id: "about" },
+    { name: "Projects", id: "project" },
     { name: "Services", id: "services" },
+    { name: "Pricing", id: "pricing" },
     { name: "Blog", id: "blog" },
-   
-
   ];
 
   return (
@@ -47,7 +45,7 @@ const Navbar = () => {
             onClick={() => scrollToSection("hero")}
             className="text-2xl font-bold gradient-text hover:opacity-80 transition-opacity"
           >
-            Zerise.dev
+            Zerisx Tech Solutions
           </button>
 
           {/* Desktop Navigation */}
